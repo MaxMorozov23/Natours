@@ -10,6 +10,12 @@
   visibility: hidden;
   transition: all .3s;
 
+  @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
+  }
+
     &__content {
     @include absCenter;
     width: 75%;
@@ -87,6 +93,39 @@
 
     &:hover {
       color: $color-primary;
+    }
+  }
+
+  @include respond(tab-port) {
+
+    &__left {
+      display: none;
+    }
+
+    &__right {
+      width: 100%;
+      display: block;
+    }
+
+    &__img {
+      display: none;
+    }
+
+    &__text {
+    font-size: .8rem;
+    -moz-column-count: 1;
+    column-count: 1;
+
+    -moz-column-gap: 0;
+    column-gap: 0;
+
+    -moz-column-rule: none;
+    column-rule: none;
+
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
     }
   }
 }
